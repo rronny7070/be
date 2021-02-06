@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ball</title>
+    <style>
+        /*요소 css*/
+        #ball {
+            background-color: gray;
+            position: absolute;
+            padding: 120px;
+            right: 50%;
+            border-radius: 100%;
+            font-size: 0px;;
+                  }
+                  /* 둥글기 css*/
+        #radius {
+            position: absolute;
+            right: 0px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(196, 196, 196);
+            font-weight: bold;
+            color: white;
+        }
+        /*크기 조절 css*/
+        #siz {
+            position: absolute;
+            right: 0px;
+            top: 60px;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(196, 196, 196);
+            color: white;
+            font-weight: bold;
+        }
+        /*최종수정 css*/
+        #edit{
+            border:none;
+            font-weight: bold;
+            padding:20px;
+            background-color:lightgray;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+   <!--요소-->
+    <h1 id="ball">d</h1>
+    <!--둥글기 제어-->
+    <input type="text" id="radius" placeholder="둥글기를 입력하세요(%)" value="100">
+    <!--크기 수정-->
+    <input type="text" id="siz" placeholder="크기를 입력하세요(px)" value="120">
+    <!--최종 수정-->
+    <input type="button" id = "edit" value="수정하기" onclick=" padd();change();">
+    <script>
+        //둥글기값 가져오기
+        function change() {
+            let radiu = document.querySelector('#radius').value
+            if (radiu < 0) {
+                alert('radius(둥글기)값이 너무 작습니다');
+            }
+            else {
+                if (radiu > 100) {
+                    alert('radius(둥글기)값이 너무 큽니다');
+                }
+                else {
+                    if (radiu == "") {
+                        alert('값을 입력해 주세요');
+                    }
+                    else {
+                        document.querySelector('#ball').style.borderRadius = radiu + '%'
+                    }
+                }
+            }
+
+
+        }
+
+        function padd(){
+            let si = document.querySelector('#siz').value;
+            document.querySelector('#ball').style.padding = si + 'px';
+        }
+
+    </script>
+</body>
+
+</html>
